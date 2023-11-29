@@ -1,0 +1,53 @@
+
+.box{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    justify-content: space-between;
+}
+
+.nav {
+   width: 65%;
+   display: flex; 
+  justify-content: space-between;
+}
+.nav-header {
+    color: black;
+    font-weight: 700;
+    font-size: 25px;
+}
+
+.nav-item-c {
+    color: black;
+    font-weight: 700;
+    font-size: 18px;
+}
+.nav-item {
+    color: #9A9A9A;
+    font-weight: 700;
+    font-size: 18px;
+}
+
+.nav-item-c:hover , .nav-item:hover {
+    cursor: pointer;
+    color: #066F61;
+     font-size: 18px;
+}
+
+
+
+/*
+
+<div class="box">
+<h1 class="nav-header">TeamSpacefarm</h1> 
+<div class="nav">
+<h5 class="nav-item" id="monitoring">모니터링</h5>
+<h5 class="nav-item" id="data-search">데이터 조회</h5>
+<h5 class="nav-item" id="alarm">이상 알람 설정</h5>
+<h5 class="nav-item" id="report">환경 리포트</h5>
+<h5 class="nav-item-c" id="control">원격 제어</h5>
+</div> 
+
+*/
