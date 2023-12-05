@@ -31,7 +31,6 @@ menu {
   margin-left: auto;
   padding-right: 1em;
   align-items: end;
-  margin-block-end: 0;
 }
 
 .nav ul li {
@@ -58,8 +57,7 @@ menu {
   height: 100%;
   display: flex;
   justify-content: center;
-  border-top-left-radius: 1em;
-  border-top-right-radius: 1em;
+  border-radius: 0.5em;
   margin: 0;
 }
 
@@ -89,6 +87,9 @@ menu {
   background-color: #ddd;
   width: 100%;
   height: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 /*
 .nav-wrap ul {
@@ -209,41 +210,169 @@ menu {
   border: 2px solid;
 }
 
-@media all and (max-width: 768px) {
-  .hamburger {
-    display: block;
+@media all and (max-width: 1366px) {
+  .nav-wrap {
+    display: flex;
+    align-items: center;
   }
+  .nav-item {
+    font-size: 1.2em;
+    display: flex;
+    padding: 2em 1rem;
+  }
+  .nav-item-c {
+    padding: 2em;
+    font-size: 1.2em;
+  }
+  .nav-header {
+    font-size: 2em;
+  }
+}
 
-  .box {
+@media all and (max-width: 810px) {
+  .nav ul {
+    margin-left: 0;
+    padding-left: 0;
     width: 100%;
-    display: block;
-    border: 1px solid red;
-    background: orange;
-    z-index: 88;
-    position: fixed;
-    top: 0;
   }
+  .nav ul li {
+    width: 100%;
+    justify-content: center;
+  }
+  .nav-item,
+  .nav-item-c {
+    font-size: 1.2em;
+    padding: 1.5em 0.3em;
+  }
+}
 
+@media all and (max-width: 500px) {
   .nav {
     width: 100%;
-    display: flex;
-    flex-direction: column;
+    margin-left: 0;
+    padding-right: 0;
+  }
+
+  .nav ul {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
     justify-content: center;
     align-items: center;
+    margin: 0 auto;
+    padding: 1em 0;
   }
 
   .nav-wrap {
-    display: none;
-    width: 25%;
-    height: 100vh;
+    width: 100%;
+    display: block;
   }
 
-  .nav-wrap.active {
-    display: block;
-    animation: fade 0.5s;
-    width: 100%;
-    height: 100vh;
-    background: skyblue;
-    position: relative;
+  .nav-header {
+    padding: 1em;
+  }
+
+  .nav ul li .nav-item {
+    font-size: 1.35em !important;
+    padding: 1em 3em !important;
+    line-height: 1em !important;
+    height: 100% !important;
+    display: flex;
+    justify-content: center;
+    border: 1px solid #b9b2b2;
+    background: #fff;
+    width: 100% !important;
+    margin: 0.5em !important;
+  }
+
+  .nav ul li .nav-item-c {
+    font-size: 1.35em !important;
+    padding: 1em 3em !important;
+    line-height: 1em !important;
+    height: 100% !important;
+    display: flex;
+    justify-content: center;
+    border: 1px solid #9a8888;
+    width: 100% !important;
+    margin: 0.5em !important;
+    background: #9a8888;
+    color: #fff;
+  }
+}
+
+@media all and (max-width: 375px) {
+  .nav-header {
+    padding: 0.3em 1em 0;
+    font-size: 1.85em;
+  }
+  .nav ul li .nav-item {
+    font-size: 1.2em !important;
+    padding: 1em 3em !important;
+    line-height: 1em !important;
+    height: 100% !important;
+    display: flex;
+    justify-content: center;
+    border: 1px solid #b9b2b2;
+    background: #fff;
+    width: 100% !important;
+    margin: 0.5em !important;
+  }
+
+  .nav ul li .nav-item-c {
+    font-size: 1.2em !important;
+    padding: 1em 3em !important;
+    line-height: 1em !important;
+    height: 100% !important;
+    display: flex;
+    justify-content: center;
+    border: 1px solid #9a8888;
+    width: 100% !important;
+    margin: 0.5em !important;
+    background: #9a8888;
+    color: #fff;
+  }
+}
+
+@media all and (max-width: 280px) {
+  .nav ul li .nav-item,
+  .nav ul li .nav-item-c {
+    font-size: 1.05em !important;
+  }
+}
+
+/****** upper tab mediaquery ******/
+@media all and (max-width: 1366px) {
+  .html-card-1033468745.nav-wrap {
+    height: auto;
+    display: flex;
+    align-items: center;
+  }
+}
+
+@media all and (max-width: 375px) {
+  .ng-star-inserted.html-card--1437281875 {
+    border: 1px solid cornflowerblue;
+  }
+
+  .ng-star-inserted.html-card--1437281875 .burger {
+    display: block !important;
+  }
+
+  .tb-widget.widget-type-system-cards-html_card:nth-child(2) {
+  }
+
+  .tb-widget-container:nth-child(1) {
+  }
+
+  .ng-star-inserted.html-card-1033468745 {
+  }
+
+  /* 농장환기제어 헤더 */
+  .ng-star-inserted.html-card--1256615005 {
+    border: 2px solid red !important;
+  }
+
+  .tb-default .tb-absolute-fill,
+  .tb-dark .tb-absolute-fill {
+    height: auto !important;
   }
 }
