@@ -1,0 +1,378 @@
+menu {
+  display: block;
+  list-style-type: disc;
+  margin-block-start: 0;
+  margin-block-end: 0;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+  padding-inline-start: 0;
+}
+
+.box {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  justify-content: space-between;
+  font-size: 10px;
+}
+
+.nav {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  margin-left: auto;
+  padding-right: 1em;
+}
+
+.nav ul {
+  display: flex;
+  justify-content: space-between;
+  margin-left: auto;
+  padding-right: 1em;
+  align-items: end;
+}
+
+.nav ul li {
+  list-style: none;
+  display: flex;
+  align-items: end;
+}
+
+.nav-header {
+  color: black;
+  font-weight: 700;
+  font-size: 2.3em;
+  line-height: 0;
+  padding: 0 1em;
+}
+
+.nav-item-c {
+  color: black;
+  font-weight: 700;
+  font-size: 1.8em;
+  background: #fff;
+  padding: 2em;
+  line-height: 0;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  border-radius: 0.5em;
+  margin: 0;
+}
+
+.nav-item {
+  color: #555;
+  font-weight: 600;
+  font-size: 1.8em;
+
+  color: black;
+  font-weight: 700;
+  font-size: 1.8em;
+  padding: 2em;
+  margin: 0;
+  line-height: 0;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.nav-item-c:hover,
+.nav-item:hover {
+  cursor: pointer;
+  color: #066f61;
+}
+
+.nav-wrap {
+  background-color: #ddd;
+  width: 100%;
+  height: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+/*
+.nav-wrap ul {
+  overflow: hidden;
+  list-style-type: none;
+  padding-top: 50%;
+  margin: 0;
+}
+
+.nav-wrap li {
+  display: block;
+  margin: 0;
+  padding: 5% 50px;
+  width: 100%;
+} 
+*/
+.nav-wrap li:hover {
+  cursor: pointer;
+}
+
+.nav-wrap li a {
+  color: #d3e3e3;
+  text-decoration: none;
+  font-size: 1.6em;
+  transition: all 0.5s;
+}
+
+.nav-wrap li:hover {
+  cursor: pointer;
+}
+
+.hamburger {
+  margin: 0;
+  margin-left: 15px;
+  padding: 0;
+  transition: opacity 0.3s;
+  z-index: 999;
+  position: absolute;
+  right: 2em;
+  top: 1em;
+  display: none;
+}
+
+.hamburger:hover {
+  cursor: pointer;
+  opacity: 0.5;
+}
+
+.hamburger .line {
+  width: 50px;
+  height: 5px;
+  background: rgb(236, 66, 66);
+  margin: 8px auto;
+  transition: all 0.3s ease-in-out;
+  border-radius: 5px;
+}
+
+.hamburger .line:nth-child(1) {
+  background-color: #a77a33;
+}
+
+.hamburger .line:nth-child(2) {
+  background-color: #633200;
+}
+
+.hamburger .line:nth-child(3) {
+  background-color: #a77a33;
+}
+
+.hamburger.isactive .line:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger.isactive .line:nth-child(1) {
+  transform: translateY(13px) rotate(45deg);
+}
+
+.hamburger.isactive .line:nth-child(3) {
+  transform: translateY(-13px) rotate(-45deg);
+}
+
+.nav-wrap {
+  transition: all 2s ease-in-out;
+}
+
+.nav-wrap.active {
+  display: block;
+  animation: fade 0.5s;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+
+.tb-multiple-input-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.tb-multiple-input-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.mat-checkbox-layout {
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+}
+
+.mat-checkbox-inner-container {
+  width: 25px;
+  height: 25px;
+}
+
+.mat-mdc-checkbox .mdc-checkbox {
+  border: 2px solid;
+}
+
+@media all and (max-width: 1366px) {
+  .nav-wrap {
+    display: flex;
+    align-items: center;
+  }
+  .nav-item {
+    font-size: 1.2em;
+    display: flex;
+    padding: 2em 1rem;
+  }
+  .nav-item-c {
+    padding: 2em;
+    font-size: 1.2em;
+  }
+  .nav-header {
+    font-size: 2em;
+  }
+}
+
+@media all and (max-width: 810px) {
+  .nav ul {
+    margin-left: 0;
+    padding-left: 0;
+    width: 100%;
+  }
+  .nav ul li {
+    width: 100%;
+    justify-content: center;
+  }
+  .nav-item,
+  .nav-item-c {
+    font-size: 1.2em;
+    padding: 1.5em 0.3em;
+  }
+}
+
+@media all and (max-width: 500px) {
+  .nav {
+    width: 100%;
+    margin-left: 0;
+    padding-right: 0;
+  }
+
+  .nav ul {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    padding: 1em 0;
+  }
+
+  .nav-wrap {
+    width: 100%;
+    display: block;
+  }
+
+  .nav-header {
+    padding: 1em;
+  }
+
+  .nav ul li .nav-item {
+    font-size: 1.35em !important;
+    padding: 1em 3em !important;
+    line-height: 1em !important;
+    height: 100% !important;
+    display: flex;
+    justify-content: center;
+    border: 1px solid #b9b2b2;
+    background: #fff;
+    width: 100% !important;
+    margin: 0.5em !important;
+  }
+
+  .nav ul li .nav-item-c {
+    font-size: 1.35em !important;
+    padding: 1em 3em !important;
+    line-height: 1em !important;
+    height: 100% !important;
+    display: flex;
+    justify-content: center;
+    border: 1px solid #9a8888;
+    width: 100% !important;
+    margin: 0.5em !important;
+    background: #9a8888;
+    color: #fff;
+  }
+}
+
+@media all and (max-width: 375px) {
+  .nav-header {
+    padding: 0.3em 1em 0;
+    font-size: 1.85em;
+  }
+  .nav ul li .nav-item {
+    font-size: 1.2em !important;
+    padding: 1em 3em !important;
+    line-height: 1em !important;
+    height: 100% !important;
+    display: flex;
+    justify-content: center;
+    border: 1px solid #b9b2b2;
+    background: #fff;
+    width: 100% !important;
+    margin: 0.5em !important;
+  }
+
+  .nav ul li .nav-item-c {
+    font-size: 1.2em !important;
+    padding: 1em 3em !important;
+    line-height: 1em !important;
+    height: 100% !important;
+    display: flex;
+    justify-content: center;
+    border: 1px solid #9a8888;
+    width: 100% !important;
+    margin: 0.5em !important;
+    background: #9a8888;
+    color: #fff;
+  }
+}
+
+@media all and (max-width: 280px) {
+  .nav ul li .nav-item,
+  .nav ul li .nav-item-c {
+    font-size: 1.05em !important;
+  }
+}
+
+/****** upper tab mediaquery ******/
+@media all and (max-width: 1366px) {
+  .html-card-1033468745.nav-wrap {
+    height: auto;
+    display: flex;
+    align-items: center;
+  }
+}
+
+@media all and (max-width: 375px) {
+  .ng-star-inserted.html-card--1437281875 {
+    border: 1px solid cornflowerblue;
+  }
+
+  .ng-star-inserted.html-card--1437281875 .burger {
+    display: block !important;
+  }
+
+  .tb-widget.widget-type-system-cards-html_card:nth-child(2) {
+  }
+
+  .tb-widget-container:nth-child(1) {
+  }
+
+  .ng-star-inserted.html-card-1033468745 {
+  }
+
+  /* 농장환기제어 헤더 */
+  .ng-star-inserted.html-card--1256615005 {
+    border: 2px solid red !important;
+  }
+
+  .tb-default .tb-absolute-fill,
+  .tb-dark .tb-absolute-fill {
+    height: auto !important;
+  }
+}
