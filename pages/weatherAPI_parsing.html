@@ -1,0 +1,68 @@
+<html>
+  <head>
+    <link rel="stylesheet" href="./css/weather.css" />
+  </head>
+  <body>
+    <div>
+      <h2 id="weather">ddd</h2>
+    </div>
+
+    <script>
+      const authKey =
+        "gY9n9MDVRnoNDC9M5x7yGi1H%2BFcXsIZHMjujZq8xcF8zPZ0rRcPaJs30s95zdJXv8t948B9xYywx1N7y0Wu4zg%3D%3D";
+
+      var xhr = new XMLHttpRequest();
+      var url =
+        "http://apis.data.go.kr/1360000/VilageFcstInfoService_2.0/getUltraSrtNcst"; /*URL*/
+      var queryParams =
+        "?" +
+        encodeURIComponent("serviceKey") +
+        "=" +
+        "gY9n9MDVRnoNDC9M5x7yGi1H%2BFcXsIZHMjujZq8xcF8zPZ0rRcPaJs30s95zdJXv8t948B9xYywx1N7y0Wu4zg%3D%3D"; /*Service Key*/
+      queryParams +=
+        "&" + encodeURIComponent("pageNo") + "=" + encodeURIComponent("1"); /**/
+      queryParams +=
+        "&" +
+        encodeURIComponent("numOfRows") +
+        "=" +
+        encodeURIComponent("1000"); /**/
+      queryParams +=
+        "&" +
+        encodeURIComponent("dataType") +
+        "=" +
+        encodeURIComponent("JSON"); /**/
+      queryParams +=
+        "&" +
+        encodeURIComponent("base_date") +
+        "=" +
+        encodeURIComponent("20210628"); /**/
+      queryParams +=
+        "&" +
+        encodeURIComponent("base_time") +
+        "=" +
+        encodeURIComponent("0600"); /**/
+      queryParams +=
+        "&" + encodeURIComponent("nx") + "=" + encodeURIComponent("55"); /**/
+      queryParams +=
+        "&" + encodeURIComponent("ny") + "=" + encodeURIComponent("127"); /**/
+      xhr.open("GET", url + queryParams);
+      xhr.onreadystatechange = function () {
+        if (this.readyState == 4) {
+          console.log("200 이어야만해" + this.status);
+          console.log(
+            "인코딩 췤: " + JSON.stringify(this.getAllResponseHeaders()) + ""
+          );
+          console.log(this.responseText);
+
+          const dataStr = JSON.stringify(this.getAllResponseBody());
+
+          const weather = document.getElementById("weather");
+          const test = this.responseText;
+
+          weather.innerHTML = test;
+        }
+      };
+      xhr.send("");
+    </script>
+  </body>
+</html>
