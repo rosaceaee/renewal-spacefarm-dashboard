@@ -4,65 +4,34 @@
   </head>
   <body>
     <div>
-      <h2 id="weather">ddd</h2>
+      <h2 id="weather">아 짜증나게 api 값 안 뜨고 난리야</h2>
+      <h4 id="par"></h4>
     </div>
 
     <script>
-      const authKey =
-        "gY9n9MDVRnoNDC9M5x7yGi1H%2BFcXsIZHMjujZq8xcF8zPZ0rRcPaJs30s95zdJXv8t948B9xYywx1N7y0Wu4zg%3D%3D";
+      const elem = document.getElementById("par");
+      const promise1 = new Promise(function (resolve, reject) {
+        setTimeout(function () {
+          const xhr = new XMLHttpRequest(),
+            method = "GET",
+            url =
+              "http://apis.data.go.kr/1360000/VilageFcstInfoService_2.0/getUltraSrtFcst?serviceKey=gY9n9MDVRnoNDC9M5x7yGi1H%2BFcXsIZHMjujZq8xcF8zPZ0rRcPaJs30s95zdJXv8t948B9xYywx1N7y0Wu4zg%3D%3D&numOfRows=10&pageNo=1&dataType=JSON&base_date=20210628&base_time=0630&nx=60&ny=128";
 
-      var xhr = new XMLHttpRequest();
-      var url =
-        "http://apis.data.go.kr/1360000/VilageFcstInfoService_2.0/getUltraSrtNcst"; /*URL*/
-      var queryParams =
-        "?" +
-        encodeURIComponent("serviceKey") +
-        "=" +
-        "gY9n9MDVRnoNDC9M5x7yGi1H%2BFcXsIZHMjujZq8xcF8zPZ0rRcPaJs30s95zdJXv8t948B9xYywx1N7y0Wu4zg%3D%3D"; /*Service Key*/
-      queryParams +=
-        "&" + encodeURIComponent("pageNo") + "=" + encodeURIComponent("1"); /**/
-      queryParams +=
-        "&" +
-        encodeURIComponent("numOfRows") +
-        "=" +
-        encodeURIComponent("1000"); /**/
-      queryParams +=
-        "&" +
-        encodeURIComponent("dataType") +
-        "=" +
-        encodeURIComponent("JSON"); /**/
-      queryParams +=
-        "&" +
-        encodeURIComponent("base_date") +
-        "=" +
-        encodeURIComponent("20210628"); /**/
-      queryParams +=
-        "&" +
-        encodeURIComponent("base_time") +
-        "=" +
-        encodeURIComponent("0600"); /**/
-      queryParams +=
-        "&" + encodeURIComponent("nx") + "=" + encodeURIComponent("55"); /**/
-      queryParams +=
-        "&" + encodeURIComponent("ny") + "=" + encodeURIComponent("127"); /**/
-      xhr.open("GET", url + queryParams);
-      xhr.onreadystatechange = function () {
-        if (this.readyState == 4) {
-          console.log("200 이어야만해" + this.status);
-          console.log(
-            "인코딩 췤: " + JSON.stringify(this.getAllResponseHeaders()) + ""
-          );
-          console.log(this.responseText);
+          xhr.open(method, url, true);
+          xhr.onreadystatechange = function () {
+            if (xhr.readyState === 4 && xhr.status === 200) {
+              console.log(xhr.responseText);
+              elem.innerHTML = xhr.responseText;
+              resolve("resolve");
+            }
+          };
+          xhr.send();
+        }, 300);
+      });
 
-          const dataStr = JSON.stringify(this.getAllResponseBody());
-
-          const weather = document.getElementById("weather");
-          const test = this.responseText;
-
-          weather.innerHTML = test;
-        }
-      };
-      xhr.send("");
+      promise1.then(function (value) {
+        console.log(value);
+      });
     </script>
   </body>
 </html>
