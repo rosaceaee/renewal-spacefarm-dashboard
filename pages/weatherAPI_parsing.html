@@ -23,6 +23,10 @@
       const date = document.getElementById("baseDate");
       const currTmp = document.getElementById("currTmp");
       const currREH = document.getElementById("currREH");
+      const currTmn = document.getElementById("currTmn");
+      const currTmx = document.getElementById("currTmx");
+      const currWsd = document.getElementById("currWsd");
+      const currPop = document.getElementById("currPop");
 
       const promise1 = new Promise(function (resolve, reject) {
         setTimeout(function () {
@@ -46,6 +50,9 @@
 
               function changing() {
                 const cate = parseData.response.body.items.item[0].category;
+                let reh = parseData.response.body.items.item[10].fcstValue;
+                let pop = parseData.response.body.items.item[7].fcstValue;
+                let wsd = parseData.response.body.items.item[4].fcstValue;
 
                 switch (cate) {
                   case "TMP": {
@@ -55,7 +62,7 @@
                   }
                   case "REH": {
                     //현재 습도
-                    currREH.innerHTML = test;
+                    currREH.innerHTML = reh;
                   }
                   case "TMN": {
                     // 금일 최저기온
@@ -65,9 +72,11 @@
                   }
                   case "WSD": {
                     //  풍속
+                    currWsd.innerHTML = wsd;
                   }
                   case "POP": {
                     // 강수확률
+                    currPop.innerHTML = pop;
                   }
                 }
               }
