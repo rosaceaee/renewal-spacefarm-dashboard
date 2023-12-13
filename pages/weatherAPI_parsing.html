@@ -1,10 +1,20 @@
 <html>
   <head>
+    <title>weather API parsing test</title>
     <link rel="stylesheet" href="./css/weather.css" />
   </head>
   <body>
+    <button id="find-me">위치위치위치</button><br />
+    <p id="status"></p>
+    <h3 id="locationVal"></h3>
+    <h2>
+      현재 여기이ㅣㅅ음
+      <span id="currLocal" style="color: red"> </span>
+    </h2>
+
     <div style="text-align: center; font-size: 1em">
       <h1 id="weather">api test</h1>
+      <h3 id="testt"></h3>
       <p id="par">
         <span> 날짜는 이렇다 : </span>
         <span class="baseDatee" id="baseDate"></span>
@@ -16,84 +26,25 @@
       <p>최go온도는 <span id="currTmx"></span>도란다</p>
       <p>pungsok은 <span id="currWsd"></span>m/s란다</p>
       <p>강수확률은 <span id="currPop"></span>mm란다</p>
+
+      <div style="border: 1px solid orange">
+        <h1>날씨췤</h1>
+        <p>
+          chk sky
+          <span id="currSky" style="border: 1px solid blue"></span>ㅇㅇㅇㅇ
+        </p>
+      </div>
+
+      <div style="border: 1px solid orange; margin-top: 60px">
+        <h1>오</h1>
+        <p>
+          chk sky
+          <span id="currSky" style="border: 1px solid blue"></span>ㅇㅇㅇㅇ
+        </p>
+      </div>
     </div>
 
-    <script>
-      const elem = document.getElementById("par");
-      const date = document.getElementById("baseDate");
-      const currTmp = document.getElementById("currTmp");
-      const currREH = document.getElementById("currREH");
-      const currTmn = document.getElementById("currTmn");
-      const currTmx = document.getElementById("currTmx");
-      const currWsd = document.getElementById("currWsd");
-      const currPop = document.getElementById("currPop");
-
-      const promise1 = new Promise(function (resolve, reject) {
-        setTimeout(function () {
-          const xhr = new XMLHttpRequest(),
-            method = "GET",
-            url =
-              //   " http://apis.data.go.kr/1360000/VilageFcstInfoService_2.0/getVilageFcst?serviceKey=HDxvF%2Bq4PsIMtuZBoqLHonXDQ0AG1YZjdrPoUeqeC922ITebwGCeM9cPfgC%2Bpz%2BsbUUtt1H5RLcOYuo3zoS6Jg%3D%3D&numOfRows=30&pageNo=1&dataType=JSON&base_date=20231211&base_time=0500&nx=55&ny=127";
-
-              "http://apis.data.go.kr/1360000/VilageFcstInfoService_2.0/getVilageFcst?serviceKey=HDxvF%2Bq4PsIMtuZBoqLHonXDQ0AG1YZjdrPoUeqeC922ITebwGCeM9cPfgC%2Bpz%2BsbUUtt1H5RLcOYuo3zoS6Jg%3D%3D&numOfRows=20&pageNo=1&base_date=20231212&base_time=0500&dataType=JSON&nx=55&ny=127";
-          xhr.open(method, url, true);
-          xhr.onreadystatechange = function () {
-            if (xhr.readyState === 4 && xhr.status === 200) {
-              console.log(xhr.responseText);
-
-              const res = xhr.responseText;
-              const parseData = JSON.parse(res);
-              const dateValue = parseData.response.body.items.item[0].baseDate;
-
-              // console.log("Date:", dateValue);
-              date.innerHTML = dateValue;
-
-              function changing() {
-                const cate = parseData.response.body.items.item[0].category;
-                let reh = parseData.response.body.items.item[10].fcstValue;
-                let pop = parseData.response.body.items.item[7].fcstValue;
-                let wsd = parseData.response.body.items.item[4].fcstValue;
-
-                switch (cate) {
-                  case "TMP": {
-                    // 현재 온도
-                    currTmp.innerHTML =
-                      parseData.response.body.items.item[0].fcstValue;
-                  }
-                  case "REH": {
-                    //현재 습도
-                    currREH.innerHTML = reh;
-                  }
-                  case "TMN": {
-                    // 금일 최저기온
-                  }
-                  case "TMX": {
-                    // 금일 최고기온
-                  }
-                  case "WSD": {
-                    //  풍속
-                    currWsd.innerHTML = wsd;
-                  }
-                  case "POP": {
-                    // 강수확률
-                    currPop.innerHTML = pop;
-                  }
-                }
-              }
-
-              changing();
-
-              resolve("resolve");
-            }
-          };
-          xhr.send();
-        }, 300);
-      });
-
-      promise1.then(function (value) {
-        //   console.log(value);
-      });
-    </script>
+    <script src="js/weatherFunc.js"></script>
 
     <!-- 새로 발급받은 키 : HDxvF%2Bq4PsIMtuZBoqLHonXDQ0AG1YZjdrPoUeqeC922ITebwGCeM9cPfgC%2Bpz%2BsbUUtt1H5RLcOYuo3zoS6Jg%3D%3D -->
 
