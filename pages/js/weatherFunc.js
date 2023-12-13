@@ -1,3 +1,4 @@
+// 소스 출처0: https://fronteer.kr/service/kmaxy (감사합니다 ㅠㅠ)
 // 소스출처 : http://www.kma.go.kr/weather/forecast/digital_forecast.jsp  내부에 있음
 // 기상청에서 이걸 왜 공식적으로 공개하지 않을까?
 //
@@ -90,7 +91,7 @@ function currLocationVal() {
     const testt = document.getElementById("testt");
     const fullTime = new Date();
     const year = fullTime.getFullYear();
-    const month = fullTime.getMonth();
+    const month = fullTime.getMonth() + 1;
     const day = fullTime.getDate();
 
     const elem = document.getElementById("par");
@@ -104,7 +105,8 @@ function currLocationVal() {
     const currTmx = document.getElementById("currTmx");
     const currWsd = document.getElementById("currWsd");
     const currPop = document.getElementById("currPop");
-
+    const currSno = document.getElementById("currSno");
+    const currSnoVal = document.getElementById("snoVal");
     const promise1 = new Promise(function (resolve, reject) {
       setTimeout(function () {
         const latitude = position.coords.latitude;
@@ -112,18 +114,21 @@ function currLocationVal() {
 
         status.textContent = "";
 
-        // Switch a latitude and longtitude val to gisangchong location val
+        // Switch a latitude and longtitude values to gisangchong location values
         const switchToGrid = dfs_xy_conv("toXY", latitude, longitude);
         console.log(switchToGrid.x, switchToGrid.y);
         const locationX = switchToGrid.x;
         const locationY = switchToGrid.y;
         locationVal.innerHTML = [switchToGrid.x, switchToGrid.y];
-        // end location
+        // end set a latitude and longtitude values
 
         const xhr = new XMLHttpRequest(),
           method = "GET",
-          url = `http://apis.data.go.kr/1360000/VilageFcstInfoService_2.0/getVilageFcst?serviceKey=HDxvF%2Bq4PsIMtuZBoqLHonXDQ0AG1YZjdrPoUeqeC922ITebwGCeM9cPfgC%2Bpz%2BsbUUtt1H5RLcOYuo3zoS6Jg%3D%3D&numOfRows=20&pageNo=1&base_date=20231212&base_time=0500&dataType=JSON&nx=${locationX}&ny=${locationY}`;
+          url = `http://apis.data.go.kr/1360000/VilageFcstInfoService_2.0/getVilageFcst?serviceKey=HDxvF%2Bq4PsIMtuZBoqLHonXDQ0AG1YZjdrPoUeqeC922ITebwGCeM9cPfgC%2Bpz%2BsbUUtt1H5RLcOYuo3zoS6Jg%3D%3D&numOfRows=20&pageNo=1&base_date=${year}${month}${day}&base_time=0500&dataType=JSON&nx=${locationX}&ny=${locationY}`;
         xhr.open(method, url, true);
+        console.log(
+          `http://apis.data.go.kr/1360000/VilageFcstInfoService_2.0/getVilageFcst?serviceKey=HDxvF%2Bq4PsIMtuZBoqLHonXDQ0AG1YZjdrPoUeqeC922ITebwGCeM9cPfgC%2Bpz%2BsbUUtt1H5RLcOYuo3zoS6Jg%3D%3D&numOfRows=20&pageNo=1&base_date=${year}${month}${day}&base_time=0500&dataType=JSON&nx=${locationX}&ny=${locationY}`
+        );
         xhr.onreadystatechange = function () {
           if (xhr.readyState === 4 && xhr.status === 200) {
             console.log(xhr.responseText);
@@ -157,6 +162,7 @@ function currLocationVal() {
               let reh = parseData.response.body.items.item[10].fcstValue; // 습도
               let pop = parseData.response.body.items.item[7].fcstValue; // 강수확률
               let wsd = parseData.response.body.items.item[4].fcstValue; // 풍속
+              let sno = parseData.response.body.items.item[11].fcstValue; // 적설
 
               switch (cate) {
                 case "TMP": {
@@ -173,6 +179,19 @@ function currLocationVal() {
                 }
                 case "TMX": {
                   // 금일 최고기온
+                }
+                case "SNO": {
+                  // 적설
+                  function replaceWord() {
+                    if (typeof sno === "number") {
+                      console.log("num");
+                    } else {
+                      console.log(sno);
+                      currSno.innerText = sno.replace("cm", "");
+                    }
+                  }
+
+                  replaceWord();
                 }
                 case "WSD": {
                   //  풍속
