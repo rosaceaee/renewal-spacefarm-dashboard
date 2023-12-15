@@ -1,0 +1,106 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-size: 10px;
+}
+
+h2 {
+  font-size: 2em;
+  text-align: center;
+}
+
+.container {
+  border: 1px solid;
+  width: calc(100% - 10rem);
+  margin: 0 auto;
+}
+
+.currFcst-con {
+  display: flex;
+  width: 100%;
+  height: 25dvh;
+}
+
+.currFcst-con .left {
+  display: flex;
+  flex-direction: column;
+  flex-basis: 40%;
+  height: 100%;
+  width: 100%;
+  border: 1px solid;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.4rem;
+}
+
+.currFcst-con .right {
+  display: flex;
+  background: beige;
+  flex-basis: 60%;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+  font-size: 1.4rem;
+}
+
+.currFcst-con .right #currSkyDangi {
+  width: 100%;
+  height: 100%;
+}
+
+.currFcst-con .right svg {
+  height: 100%;
+  margin-left: auto;
+  display: block;
+  position: relative;
+  right: 0;
+  border: 2px solid;
+  width: 100%;
+}
+
+.currFcst-con .currSky-result {
+  display: flex;
+  flex-wrap: wrap;
+  height: 100%;
+  width: 100%;
+  position: relative;
+}
+
+.currFcst-con .currSky-result span {
+  position: absolute;
+  left: 0;
+}
+
+.result-cloudy {
+  width: 100%;
+  position: relative;
+  height: 100%;
+  margin-left: auto;
+  border: 1px solid;
+  display: flex;
+}
+
+.otherFcst-con {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.otherFcst-con .wrap {
+  text-align: center;
+  border: 1px solid;
+  height: 10dvh;
+  text-align: center;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.4rem;
+}
+
+.otherFcst-con .wrap span {
+}

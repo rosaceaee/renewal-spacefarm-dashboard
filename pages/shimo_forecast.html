@@ -1,0 +1,59 @@
+<html>
+  <head>
+    <title>shimo API parsing test</title>
+    <link rel="stylesheet" href="./css/weather.css" />
+  </head>
+  <body>
+    <h1>SHIMO API PARSING SAMPLE TEST</h1>
+    <p>
+      'http://apis.data.go.kr/1360000/VilageFcstInfoService_2.0/getUltraSrtFcst?serviceKey=HDxvF%2Bq4PsIMtuZBoqLHonXDQ0AG1YZjdrPoUeqeC922ITebwGCeM9cPfgC%2Bpz%2BsbUUtt1H5RLcOYuo3zoS6Jg%3D%3D&pageNo=1&dataType=JSON&base_date=20231212&base_time=0600&nx=60&ny=128'
+    </p>
+    <button id="find-me">위치위치위치</button><br />
+    <p id="status"></p>
+    <h3 id="locationVal"></h3>
+    <h2>
+      현재 여기이ㅣㅅ음
+      <span id="currLocal" style="color: red"> </span>
+    </h2>
+
+    <div style="text-align: center; font-size: 1em">
+      <h1 id="weather">api test</h1>
+      <h3 id="testt"></h3>
+
+      <p>
+        <span> 기준날짜는 이렇다 : </span>
+
+        <span id="baseDate"></span>
+      </p>
+
+      <p id="par">
+        <span> 예보날짜는 이렇다 : </span>
+        <span class="wrap_fsctDate" id="fcstDate"></span>
+      </p>
+
+      <p>
+        <span class="wrap_fsctDate"></span> 의 서리 확률은
+        <span id="currShimoVal"></span>% 란다
+      </p>
+    </div>
+
+    <script src="js/shimoFunc.js"></script>
+
+    <!-- 새로 발급받은 키 : HDxvF%2Bq4PsIMtuZBoqLHonXDQ0AG1YZjdrPoUeqeC922ITebwGCeM9cPfgC%2Bpz%2BsbUUtt1H5RLcOYuo3zoS6Jg%3D%3D -->
+
+    <!---
+
+?serviceKey=gY9n9MDVRnoNDC9M5x7yGi1H%2BFcXsIZHMjujZq8xcF8zPZ0rRcPaJs30s95zdJXv8t948B9xYywx1N7y0Wu4zg%3D%3D&numOfRows=10&pageNo=1&dataType=JSON&base_date=20210628&base_time=0630&nx=60&ny=128";
+
+http://apis.data.go.kr/1360000/VilageFcstInfoService_2.0
+http://apis.data.go.kr/1360000/VilageFcstInfoService_2.0/getVilageFcst?serviceKey=gY9n9MDVRnoNDC9M5x7yGi1H%2BFcXsIZHMjujZq8xcF8zPZ0rRcPaJs30s95zdJXv8t948B9xYywx1N7y0Wu4zg%3D%3D&numOfRows=10&pageNo=1&dataType=JSON&base_date=20210628&base_time=0630&nx=60&ny=128";
+
+
+http://apis.data.go.kr/1360000/VilageFcstInfoService_2.0/getUltraSrtNcst
+?serviceKey=gY9n9MDVRnoNDC9M5x7yGi1H%2BFcXsIZHMjujZq8xcF8zPZ0rRcPaJs30s95zdJXv8t948B9xYywx1N7y0Wu4zg%3D%3D
+&numOfRows=10&pageNo=1
+&base_date=20210628&base_time=0600&nx=55&ny=127
+
+-->
+  </body>
+</html>
