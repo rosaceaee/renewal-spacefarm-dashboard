@@ -11,16 +11,35 @@
           <h1><span id="currTmp"></span>도</h1>
         </div>
         <div class="right">
-          <div id="currSky" style="border: 1px solid blue"></div>
+          <div id="currSkyDangi" style="border: 1px solid blue"></div>
+          <div id="currRainChk">
+            <h4 id="rainPercent"></h4>
+            <h4 id="rainPty" style="border: 1px solid red"></h4>
+            <h4 class="rainHour"><span id="rainPcp"></span></h4>
+          </div>
         </div>
       </div>
 
       <div class="otherFcst-con">
-        <div class="wrap humidity"><span id="currREH"></span>%</div>
-        <div class="wrap windy"><span id="currWsd"></span>m/s</div>
-        <div class="wrap rain"><span id="currPop"></span>mm</div>
+        <div class="wrap humidity">습도: <span id="new_reh"></span>%</div>
+        <div class="wrap windy">풍속: <span id="new_wsd"></span>m/s</div>
+        <!--  <div class="wrap rain">강수형태: <span id="new_pty"></span>%</div>-->
         <div class="wrap snow" id="currSno"><span id="snoVal"></span> cm</div>
       </div>
+    </section>
+
+    <div id="next">
+      <span id="nextday"></span>
+      다음 날 최저기온:
+      <span id="nextLowTemp"> </span>
+
+      <h5 id="nextHighTemp"></h5>
+    </div>
+
+    <section>
+      <h4>
+        <span id="next_baseDate"> </span>
+      </h4>
     </section>
     <hr />
     <br />
